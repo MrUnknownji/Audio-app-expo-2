@@ -1,0 +1,66 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions -->
+  <defs>
+    <!-- Background Neumorphic Shadow (Dark) -->
+    <filter id="shadow-dark" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="20" result="blur"/>
+      <feOffset dx="12" dy="12" result="offsetBlur"/>
+      <feComposite in="offsetBlur" in2="SourceAlpha" operator="out" result="outerShadow"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 0"/>
+    </filter>
+
+    <!-- Background Neumorphic Highlight (Light) -->
+    <filter id="shadow-light" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="20" result="blur"/>
+      <feOffset dx="-12" dy="-12" result="offsetBlur"/>
+      <feComposite in="offsetBlur" in2="SourceAlpha" operator="out" result="outerShadow"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0"/>
+    </filter>
+
+    <!-- Main Gradient -->
+    <linearGradient id="main-gradient" x1="0" y1="1024" x2="1024" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7C5CFF"/> <!-- Purple -->
+      <stop offset="1" stop-color="#5CE1E6"/> <!-- Cyan -->
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Squircle -->
+  <rect x="64" y="64" width="896" height="896" rx="220" fill="#16161A"/>
+  
+  <!-- Content: AudioVibes Waveform -->
+  <g filter="url(#glow)">
+    <!-- Main Wave Path -->
+    <path d="
+      M 212 512 
+      L 312 512 
+      C 340 512, 360 460, 380 412 
+      L 412 332 
+      C 430 280, 450 280, 468 332
+      L 512 732 
+      C 525 810, 560 810, 580 710
+      L 630 430 
+      C 645 380, 670 380, 685 430
+      L 712 512 
+      C 730 512, 740 480, 760 512
+      L 812 512
+    " 
+    stroke="url(#main-gradient)" 
+    stroke-width="64" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+    fill="none"
+    />
+  </g>
+  
+  <!-- Overlay Glare (Subtle Glass Effect) -->
+  <path d="M 64 64 H 960 Q 960 64 960 284 Q 512 400 64 284 V 64 Z" fill="url(#main-gradient)" fill-opacity="0.03"/>
+</svg>

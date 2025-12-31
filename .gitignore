@@ -39,3 +39,6 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+!/android/build/reports/problems/problems-report.html
+!/node_modules/react-native-track-player/android/src/main/java/com/doublesymmetry/trackplayer/module/MusicModule.kt
+documentation.md
